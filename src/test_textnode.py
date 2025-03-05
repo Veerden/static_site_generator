@@ -21,7 +21,7 @@ class TestTextNode(unittest.TestCase):
 
     def test_text_typ_not_eq(self):
         node = TextNode("we are the droids you're looking for", TextType.BOLD, url=None)
-        node2 = TextNode("we are the droids you're looking for", TextType.NORMAL, url=None)
+        node2 = TextNode("we are the droids you're looking for", TextType.TEXT, url=None)
         self.assertNotEqual(node, node2)
 
 
