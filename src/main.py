@@ -1,9 +1,8 @@
 from textnode import TextNode, TextType
-
+from copy_static import copy_static
 
 def main():
-  node = TextNode("Hello World", TextType.ITALIC_TEXT, "https://www.candaequipment.net")
-  print(node)
+  
 
 if __name__ == "__main__":
   main()
