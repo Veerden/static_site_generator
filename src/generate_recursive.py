@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from gencontent import generate_page, extract_title
 
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, basepath):
     # List all entries in the current directory
     entries = os.listdir(dir_path_content)
     
@@ -23,7 +23,7 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
             
             # Generate the HTML and write it to the destination
             # You'll need to use your existing generate_page function here
-            generate_page(entry_path, template_path, dest_file_path)
+            generate_page(entry_path, template_path, dest_file_path, basepath)
             
         # If it's a directory, recursively process it
         elif os.path.isdir(entry_path):
@@ -31,4 +31,4 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
             dest_subdir = os.path.join(dest_dir_path, os.path.relpath(entry_path, dir_path_content))
             
             # Recursively process the subdirectory
-            generate_pages_recursive(entry_path, template_path, dest_subdir)
+            generate_pages_recursive(entry_path, template_path, dest_subdir, basepath)
